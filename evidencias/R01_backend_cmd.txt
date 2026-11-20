@@ -1,0 +1,8 @@
+$ docker compose ps -a
+NAME                                                          IMAGE                                                       COMMAND                  SERVICE    CREATED         STATUS                     PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1    catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend    "uvicorn app:app --h…"   backend    6 minutes ago   Exited (1) 6 minutes ago   
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1         postgres:16-alpine                                          "docker-entrypoint.s…"   db         6 minutes ago   Up 6 minutes               5432/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend   "/docker-entrypoint.…"   frontend   6 minutes ago   Up 6 minutes               80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+
+$ docker compose logs backend
+backend-1  | ERROR:    Error loading ASGI app. Could not import module "app".
