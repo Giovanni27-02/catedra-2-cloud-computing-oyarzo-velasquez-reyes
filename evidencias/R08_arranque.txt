@@ -1,0 +1,34 @@
+$ docker compose up -d
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Creating 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Creating 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Creating 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Creating 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Created 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Created 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Created 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Started 
+$ docker compose ps -a
+NAME                                                          IMAGE                                                       COMMAND                  SERVICE    CREATED          STATUS                      PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1    catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend    "uvicorn main:app --…"   backend    13 seconds ago   Exited (3) 11 seconds ago   
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1         postgres:16-alpine                                          "docker-entrypoint.s…"   db         13 seconds ago   Up 13 seconds               5432/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend   "/docker-entrypoint.…"   frontend   13 seconds ago   Up 12 seconds               0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+
+$ logs backend
+backend-1  | sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "db" (172.18.0.2), port 5432 failed: Connection refused
+
+$ horas: backend vs db
+db-1  | 2026-11-20T01:32:08.161075014Z 2026-11-20 01:32:08.160 UTC [40] LOG:  database system is ready to accept connections
+db-1  | 2026-11-20T01:32:08.737429060Z 2026-11-20 01:32:08.737 UTC [1] LOG:  database system is ready to accept connections
+backend-1  | 2026-11-20T01:32:06.630421255Z ERROR:    Application startup failed. Exiting.
