@@ -1,0 +1,13 @@
+$ docker compose ps -a backend
+NAME                                                         IMAGE                                                                     COMMAND                  SERVICE   CREATED         STATUS                      PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1   sha256:78232b91e45071f662ad48101480689ce6be749fcca86c669a9797d10e5a2431   "uvicorn main:app --…"   backend   2 minutes ago   Exited (3) 32 seconds ago   
+
+$ docker compose logs backend | grep OperationalError
+backend-1  | sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "db" (172.18.0.2), port 5432 failed: FATAL:  password authentication failed for user "appuser"
+
+$ docker compose logs db | grep authentication
+db-1  | 2026-11-20 00:47:26.370 UTC [63] FATAL:  password authentication failed for user "appuser"
+
+$ docker compose config | grep -E "DATABASE_URL|POSTGRES_PASSWORD"
+      DATABASE_URL: postgresql://appuser:wrongpass@db:5432/appdb
+      POSTGRES_PASSWORD: rescue123

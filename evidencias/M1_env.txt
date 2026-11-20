@@ -1,0 +1,7 @@
+$ docker compose config | grep -E "DATABASE_URL|POSTGRES_|published"
+      DATABASE_URL: postgresql://appuser:rescue123@db:5432/appdb
+      POSTGRES_DB: appdb
+      POSTGRES_PASSWORD: rescue123
+      POSTGRES_USER: appuser
+        - pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}
+        published: "8080"

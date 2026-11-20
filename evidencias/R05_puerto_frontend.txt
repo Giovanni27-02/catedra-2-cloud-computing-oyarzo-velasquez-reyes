@@ -1,0 +1,15 @@
+$ curl http://127.0.0.1:8080/
+curl: (56) Recv failure: Connection reset by peer
+
+$ docker compose ps frontend
+NAME                                                          IMAGE                                                                     COMMAND                  SERVICE    CREATED         STATUS         PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   sha256:30694ca8550cfde6048f2de24117a46e2734d1934e0f8ad8599f8fe0e6d19554   "/docker-entrypoint.…"   frontend   7 minutes ago   Up 7 minutes   80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+
+$ grep listen (dentro del contenedor)
+    listen 80;
+
+$ netstat -tln (dentro del contenedor)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       
+tcp        0      0 127.0.0.11:32967        0.0.0.0:*               LISTEN      
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      

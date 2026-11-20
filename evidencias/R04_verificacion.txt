@@ -1,0 +1,13 @@
+$ docker compose ps
+NAME                                                          IMAGE                                                                     COMMAND                  SERVICE    CREATED          STATUS          PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1    catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend                  "uvicorn main:app --…"   backend    20 seconds ago   Up 19 seconds   8000/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1         postgres:16-alpine                                                        "docker-entrypoint.s…"   db         3 minutes ago    Up 3 minutes    5432/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   sha256:30694ca8550cfde6048f2de24117a46e2734d1934e0f8ad8599f8fe0e6d19554   "/docker-entrypoint.…"   frontend   3 minutes ago    Up 3 minutes    80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+
+$ docker compose logs backend | tail -3
+backend-1  | INFO:     Waiting for application startup.
+backend-1  | INFO:     Application startup complete.
+backend-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+
+$ GET /health desde dentro del backend
+{"status":"ok","database":"reachable"}

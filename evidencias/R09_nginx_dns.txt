@@ -1,0 +1,17 @@
+IP backend ANTES: 172.18.0.3 (ocupada ahora por otro contenedor)
+IP backend DESPUÉS: 172.18.0.5
+$ docker compose ps backend
+NAME                                                         IMAGE                                                      COMMAND                  SERVICE   CREATED          STATUS          PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend   "uvicorn main:app --…"   backend   35 seconds ago   Up 33 seconds   8000/tcp
+$ curl /api/health
+[HTTP 502]
+$ logs frontend upstream
+frontend-1  | 2026/11/20 01:41:31 [warn] 29#29: *4 upstream server temporarily disabled while connecting to upstream, client: 172.18.0.1, server: _, request: "GET /api/health HTTP/1.1", upstream: "http://127.0.0.1:8000/health", host: "127.0.0.1:8080"
+
+=== DESPUÉS DE LA CORRECCIÓN ===
+IP backend ANTES: 172.18.0.3
+IP backend DESPUÉS: 172.18.0.5
+$ curl /api/health
+{"status":"ok","database":"reachable"} [HTTP 200]
+$ curl /api/items
+[] [HTTP 200]
