@@ -1,10 +1,21 @@
+# ACI606 - Docker Rescue Challenge (versión reparada)
+# Valores configurables desde .env (ver .env.example). Los valores por defecto
+# permiten que "docker compose up --build -d" funcione en un Codespace limpio.
+
 services:
   frontend:
     build: ./frontend
     ports:
       - "${FRONTEND_PORT:-8080}:80"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
 
   backend:
     build: ./backend
@@ -14,6 +25,13 @@ services:
       db:
         condition: service_healthy
     restart: unless-stopped
+    healthcheck:
+      # /health ejecuta SELECT 1: valida la API y la conexión real a PostgreSQL
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3).status == 200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   db:
     image: postgres:16-alpine
@@ -22,7 +40,6 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rescue123}
       POSTGRES_DB: ${POSTGRES_DB:-appdb}
     healthcheck:
-      # $$ evita que Compose interpole; se resuelve dentro del contenedor
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
       interval: 5s
       timeout: 3s
