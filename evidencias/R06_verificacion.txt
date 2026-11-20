@@ -1,0 +1,6 @@
+$ curl http://127.0.0.1:8080/api/health
+{"status":"ok","database":"reachable"}
+$ POST /api/items
+{"id":1,"name":"prueba-R06","created_at":"2026-11-20T00:57:44.851301"}
+$ GET /api/items
+[{"id":1,"name":"prueba-R06","created_at":"2026-11-20T00:57:44.851301"}]

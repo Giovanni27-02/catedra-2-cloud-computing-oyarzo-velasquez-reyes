@@ -1,0 +1,8 @@
+$ curl -i http://127.0.0.1:8080/api/health
+HTTP/1.1 502 Bad Gateway
+
+$ docker compose logs frontend | grep error
+frontend-1  | 2026/11/20 00:56:27 [error] 29#29: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET /api/health HTTP/1.1", upstream: "http://[::1]:8000/health", host: "127.0.0.1:8080"
+
+$ wget http://backend:8000/health desde el frontend
+{"status":"ok","database":"reachable"}
