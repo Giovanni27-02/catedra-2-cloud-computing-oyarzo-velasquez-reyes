@@ -1,0 +1,268 @@
+########## PRUEBA 1: Arranque limpio
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Stopping 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Stopped 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Removing 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Removed 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Stopping 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Stopped 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Removing 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Removed 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Stopping 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Stopped 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Removing 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Removed 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Removing 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Removing 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Removed 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Removed 
+$ docker compose up --build -d --wait
+ Image catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend Building 
+ Image catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.27kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [auth] library/python:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [auth] library/nginx:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#6 DONE 0.2s
+
+#7 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#7 DONE 0.2s
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend internal] load .dockerignore
+#9 transferring context: 64B done
+#9 DONE 0.0s
+
+#10 [frontend internal] load build context
+#10 transferring context: 62B done
+#10 DONE 0.0s
+
+#11 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#11 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 0.0s done
+#11 DONE 0.1s
+
+#12 [backend internal] load build context
+#12 transferring context: 64B done
+#12 DONE 0.0s
+
+#13 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#13 CACHED
+
+#14 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#14 CACHED
+
+#15 [frontend] exporting to image
+#15 exporting layers done
+#15 exporting manifest sha256:90b5094f4205b915467c34ca66f9f18040cbea72d8b25e66dad59997e42f6d63 0.0s done
+#15 exporting config sha256:b993fbf076a2e19fb979a097cc9dac11385c7b30f77721a33ec6507a1b41c808
+#15 ...
+
+#16 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#16 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.1s done
+#16 DONE 0.1s
+
+#17 [backend 2/5] WORKDIR /app
+#17 CACHED
+
+#18 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#18 CACHED
+
+#19 [backend 3/5] COPY requirements.txt .
+#19 CACHED
+
+#20 [backend 5/5] COPY main.py .
+#20 CACHED
+
+#15 [frontend] exporting to image
+#15 exporting config sha256:b993fbf076a2e19fb979a097cc9dac11385c7b30f77721a33ec6507a1b41c808 done
+#15 exporting attestation manifest sha256:18398081447cde860a0b7ad736c0865e63f999ef8a8d8ec5d881a3221c056396 0.0s done
+#15 exporting manifest list sha256:d4a90ec9b10fcc85cb33a230d8eba6ddda0517f2cb21750e8a8fb2f8d5f65ba3 0.0s done
+#15 naming to docker.io/library/catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend:latest
+#15 naming to docker.io/library/catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend:latest done
+#15 unpacking to docker.io/library/catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend:latest 0.0s done
+#15 DONE 0.2s
+
+#21 [backend] exporting to image
+#21 exporting layers done
+#21 exporting manifest sha256:33c03e648b3c4bb0bad313838be4a6a57745321c798ff1c6c839e12381d161b4 done
+#21 exporting config sha256:51b5a61166399f17f1fb85ff82b2b4af8455a9d04c6e3ae32b2596b9b0a5403a 0.0s done
+#21 exporting attestation manifest sha256:2c23c8474ef528075cddd34c649608608bf776f9a856eb705787ce67d8291261 0.0s done
+#21 exporting manifest list sha256:2c00544191440db2f7f95441e8dfb2d92204e741730aa4039a02ee04bf84a924 0.0s done
+#21 naming to docker.io/library/catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend:latest done
+#21 unpacking to docker.io/library/catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend:latest 0.0s done
+#21 DONE 0.2s
+
+#22 [frontend] resolving provenance for metadata file
+#22 DONE 0.0s
+
+#23 [backend] resolving provenance for metadata file
+#23 DONE 0.0s
+ Image catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend Built 
+ Image catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend Built 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Creating 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Creating 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Creating 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Creating 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Created 
+ Volume catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata Created 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Created 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Healthy 
+$ docker compose ps
+NAME                                                          IMAGE                                                       COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1    catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend    "uvicorn main:app --…"   backend    22 seconds ago   Up 16 seconds (healthy)   8000/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1         postgres:16-alpine                                          "docker-entrypoint.s…"   db         23 seconds ago   Up 22 seconds (healthy)   5432/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend   "/docker-entrypoint.…"   frontend   22 seconds ago   Up 10 seconds (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+
+########## PRUEBA 2: Comunicación frontend -> backend -> db
+$ curl /
+200
+$ curl /api/health
+{"status":"ok","database":"reachable"}
+$ POST /api/items
+{"id":1,"name":"Registro equipo","created_at":"2026-11-20T02:20:13.811669"}
+$ SELECT en PostgreSQL
+ id |      name       |         created_at         
+----+-----------------+----------------------------
+  1 | Registro equipo | 2026-11-20 02:20:13.811669
+(1 row)
+
+
+########## PRUEBA 3: Persistencia
+$ docker compose up -d --force-recreate --wait db
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Recreate 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Recreated 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Healthy 
+$ GET /api/items
+[{"id":1,"name":"Registro equipo","created_at":"2026-11-20T02:20:13.811669"}]
+$ docker compose down (sin -v)
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Stopping 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Stopped 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Removing 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Removed 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Stopping 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Stopped 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Removing 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Removed 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Stopping 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Stopped 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Removing 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Removed 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Removing 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Removed 
+$ docker volume ls
+DRIVER    VOLUME NAME
+local     catedra-2-cloud-computing-oyarzo-velasquez-reyes_pgdata
+local     da2233804311c3aab2deae652c60747e3b79dd10306e4eea3b9a1fd1bf594189
+$ docker compose up -d --wait
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Creating 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Creating 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Created 
+ Network catedra-2-cloud-computing-oyarzo-velasquez-reyes_default Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Created 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Started 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Waiting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 Healthy 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 Healthy 
+$ GET /api/items
+[{"id":1,"name":"Registro equipo","created_at":"2026-11-20T02:20:13.811669"}]
+
+########## PRUEBA 4: Fallo controlado
+$ docker compose stop db
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Stopping 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Stopped 
+$ curl / (frontend)
+200
+$ curl /api/health
+{"detail":"database unavailable: (psycopg2.OperationalError) could not translate host name \"db\" to address: Name or service not known\n\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"} [HTTP 503]
+$ curl /api/items
+Internal Server Error [HTTP 500]
+
+########## PRUEBA 5: Diagnóstico
+$ docker compose ps -a
+NAME                                                          IMAGE                                                       COMMAND                  SERVICE    CREATED              STATUS                          PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1    catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend    "uvicorn main:app --…"   backend    About a minute ago   Up About a minute (unhealthy)   8000/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1         postgres:16-alpine                                          "docker-entrypoint.s…"   db         About a minute ago   Exited (0) About a minute ago   
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend   "/docker-entrypoint.…"   frontend   About a minute ago   Up About a minute (healthy)     0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+$ salud del backend
+unhealthy FailingStreak=6
+$ logs backend
+backend-1  | INFO:     127.0.0.1:33444 - "GET /health HTTP/1.1" 503 Service Unavailable
+backend-1  | INFO:     127.0.0.1:50690 - "GET /health HTTP/1.1" 503 Service Unavailable
+backend-1  | INFO:     127.0.0.1:44796 - "GET /health HTTP/1.1" 503 Service Unavailable
+$ docker network inspect
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1 172.18.0.3/16
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1 172.18.0.4/16
+
+
+########## PRUEBA 6: Recuperación
+$ docker compose start db
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Starting 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1 Started 
+$ docker compose ps
+NAME                                                          IMAGE                                                       COMMAND                  SERVICE    CREATED              STATUS                        PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1    catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend    "uvicorn main:app --…"   backend    About a minute ago   Up About a minute (healthy)   8000/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-db-1         postgres:16-alpine                                          "docker-entrypoint.s…"   db         About a minute ago   Up 30 seconds (healthy)       5432/tcp
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend   "/docker-entrypoint.…"   frontend   About a minute ago   Up About a minute (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+$ curl /api/health
+{"status":"ok","database":"reachable"}
+$ curl /api/items
+[{"id":1,"name":"Registro equipo","created_at":"2026-11-20T02:20:13.811669"}]
