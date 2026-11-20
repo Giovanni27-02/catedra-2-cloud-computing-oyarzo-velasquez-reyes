@@ -1,0 +1,5 @@
+$ docker compose ps frontend
+NAME                                                          IMAGE                                                       COMMAND                  SERVICE    CREATED          STATUS          PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago   Up 11 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+$ curl -o /dev/null -w "%{http_code}" http://127.0.0.1:8080/
+200
