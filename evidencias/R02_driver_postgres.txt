@@ -1,0 +1,15 @@
+$ docker compose ps -a backend
+NAME                                                         IMAGE                                                      COMMAND                  SERVICE   CREATED         STATUS                     PORTS
+catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-1   catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend   "uvicorn main:app --…"   backend   3 minutes ago   Exited (1) 3 minutes ago   
+
+$ docker compose logs backend | tail -5
+backend-1  |     dbapi = dbapi_meth(**dbapi_args)
+backend-1  |             ^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 690, in import_dbapi
+backend-1  |     import psycopg2
+backend-1  | ModuleNotFoundError: No module named 'psycopg2'
+
+$ pip list dentro de la imagen
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-run-a7ec07b031f0 Creating 
+ Container catedra-2-cloud-computing-oyarzo-velasquez-reyes-backend-run-a7ec07b031f0 Created 
+SQLAlchemy        2.0.36
